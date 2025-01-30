@@ -1,21 +1,19 @@
 import { getOrder, getSort } from "@helpers/query-helpers";
 import { isNullOrWhitespace } from "@helpers/type-helpers";
-import { GetProductCategoryParams } from "./types";
-import { ProductCategory } from "@entities/product-category.entity";
+import { GetAdminParams } from "./types";
+import { Admin } from "@entities/admin.entity";
 
 // Sort column options
 const sortColumns = [
-  "name",
+  { key: "name", value: "full_name" },
   { key: "dateModified", value: "date_modified" },
   { key: "dateCreated", value: "date_created" },
 ];
 
-export const getProductCategories = async (
-  params: GetProductCategoryParams
-) => {
+export const getAdmins = async (params: GetAdminParams) => {
   const { page, pageSize, order, sort, id, searchString } = params;
 
-  const query = ProductCategory.createQueryBuilder("e");
+  const query = Admin.createQueryBuilder("e");
 
   // Filter by id
   if (id != null) {
@@ -24,7 +22,7 @@ export const getProductCategories = async (
 
   // Filter(search) by name
   if (!isNullOrWhitespace(searchString)) {
-    query.andWhere("(e.name LIKE :searchString)", {
+    query.andWhere("(e.fullName LIKE :searchString)", {
       searchString: `%${searchString}%`,
     });
   }

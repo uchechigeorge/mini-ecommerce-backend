@@ -8,8 +8,6 @@ _A template config file has been created to view the necessary environment varia
 
 _Update the database connection values as need be; DB\_\_NAME, DB\_\_PASSWORD etc_
 
-ACCESS_TOKEN
-
 ---
 
 ## Scripts

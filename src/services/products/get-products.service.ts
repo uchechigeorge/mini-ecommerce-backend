@@ -7,9 +7,9 @@ import { Product } from "@entities/product.entity";
 const sortColumns = [
   "name",
   "price",
-  "stockQuantity",
-  "dateModified",
-  "dateCreated",
+  { key: "stockQuantity", value: "stock_quantity" },
+  { key: "dateModified", value: "date_modified" },
+  { key: "dateCreated", value: "date_created" },
 ];
 
 export const getProducts = async (params: GetProductParams) => {

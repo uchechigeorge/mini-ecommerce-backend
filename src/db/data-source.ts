@@ -33,7 +33,7 @@ const options: DataSourceOptions = {
   migrationsTableName: "_migrations",
   synchronize: (process.env.TYPE_ORM_SYNCHRONIZE ?? "").toLowerCase() == "true",
   logging,
-  ssl: true,
+  ssl: (process.env.ENABLE_DB_SSL_CONNECTION ?? "").toLowerCase() == "true",
 };
 
 export const AppDataSource = new DataSource(options);

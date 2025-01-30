@@ -1,4 +1,4 @@
-import { getAllIProductsQuerySchema } from "@dtos/v1/admin/products/get-product-params";
+import { getAllIProductsQuerySchema as getAllProductsQuerySchema } from "@dtos/v1/admin/products/get-product-params";
 import productMapper from "@mappers/admin/products";
 import productService from "@services/products";
 import { NextFunction, Request, Response } from "express";
@@ -6,7 +6,7 @@ import { NextFunction, Request, Response } from "express";
 const getAll = async (req: Request, res: Response, next: NextFunction) => {
   try {
     // Get query params
-    const query = getAllIProductsQuerySchema.parse(req.query);
+    const query = getAllProductsQuerySchema.parse(req.query);
 
     // Get params for fetching records
     const params = productMapper.mapGetAllQueryToGetParams(query);

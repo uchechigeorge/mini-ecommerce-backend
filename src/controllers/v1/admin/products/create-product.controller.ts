@@ -30,7 +30,7 @@ const create = async (req: Request, res: Response, next: NextFunction) => {
     // Map to dto
     const data = await productMapper.mapEntitytoReadDto(newProduct);
 
-    res.status(201).json({ status: 200, message: "Created", data });
+    res.status(201).json({ status: 201, message: "Created", data });
   } catch (err) {
     next(err);
   }

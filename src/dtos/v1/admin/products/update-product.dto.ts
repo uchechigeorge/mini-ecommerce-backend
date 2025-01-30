@@ -1,16 +1,16 @@
+import { parsedOptionalNumber } from "@helpers/zod-type-helpers";
 import { z } from "zod";
 
 const rString = z.string().trim().min(1);
 const oString = z.string().optional();
 const rNumber = z.coerce.number();
-const oNumber = z.coerce.number().optional();
 
 export const updateProductDtoSchema = z.object({
   name: rString,
   description: oString,
   price: rNumber,
   stockQuantity: rNumber,
-  productCategoryId: oNumber,
+  productCategoryId: parsedOptionalNumber,
 });
 
 export const updateProductParamSchema = z.object({ id: z.coerce.number() });
