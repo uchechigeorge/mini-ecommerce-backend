@@ -2,7 +2,6 @@ import { z } from "zod";
 
 const nString = z.string().nullable().catch(null);
 const nNumber = z.coerce.number().nullable().catch(null);
-const nBoolean = z.boolean().catch(false);
 const nDate = z.coerce.date().nullable().catch(null);
 
 const zPromise = (value: any) => {
